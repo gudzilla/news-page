@@ -1,7 +1,6 @@
 import { NewsApi } from './api/newsApi.js';
 import { ArticlesView } from './views/articlesView.js';
 import { FilterState } from './state/filterState.js';
-import { SelectCountryView } from './views/selectCountryView.js';
 import { SelectCategoryView } from './views/selectCategoryView.js';
 import { SearchQueryView } from './views/searchQueeryView.js';
 import { Loader } from './lib/loader.js';
@@ -55,10 +54,6 @@ filters.subscribe(async (state) => {
 
 filters.initialize({ country: 'us', category: 'general' });
 
-new SelectCountryView({
-  value: filters.getState().country,
-  onChange: filters.setCountry,
-}).render();
 new SelectCategoryView({
   value: filters.getState().category,
   onChange: filters.setCategory,
