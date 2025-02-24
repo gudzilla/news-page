@@ -18,26 +18,71 @@
     <header class="header">
       <div class="header__content container">
         <a href="/index.html" class="header__logo logo">News Wave</a>
-        <button class="navbar__mobile-menu-button mobile-menu-button" id="mobileMenuButton">
+        <button
+          class="navbar__mobile-menu-button mobile-menu-button"
+          id="mobileMenuButton"
+        >
           <span class="mobile-menu-button__bar"></span>
           <span class="mobile-menu-button__bar"></span>
           <span class="mobile-menu-button__bar"></span>
         </button>
         <nav class="header__navbar navbar" id="headerNav">
           <div class="category" id="chooseCategory">
-            <input id="general" type="radio" name="category" class="category__input" value="general" />
+            <input
+              id="general"
+              type="radio"
+              name="category"
+              class="category__input"
+              value="general"
+            />
             <label for="general" class="category__label">General</label>
-            <input id="sport" type="radio" name="category" class="category__input" value="sports" />
+            <input
+              id="sport"
+              type="radio"
+              name="category"
+              class="category__input"
+              value="sports"
+            />
             <label for="sport" class="category__label"> Sports </label>
-            <input type="radio" name="category" class="category__input" value="technology" id="technology" />
+            <input
+              type="radio"
+              name="category"
+              class="category__input"
+              value="technology"
+              id="technology"
+            />
             <label for="technology" class="category__label">Technology</label>
-            <input type="radio" name="category" class="category__input" id="science" value="science" />
+            <input
+              type="radio"
+              name="category"
+              class="category__input"
+              id="science"
+              value="science"
+            />
             <label for="science" class="category__label"> Science </label>
-            <input type="radio" name="category" class="category__input" value="health" id="health" />
+            <input
+              type="radio"
+              name="category"
+              class="category__input"
+              value="health"
+              id="health"
+            />
             <label for="health" class="category__label"> Health </label>
-            <input type="radio" name="category" class="category__input" value="business" id="business" />
+            <input
+              type="radio"
+              name="category"
+              class="category__input"
+              value="business"
+              id="business"
+            />
             <label for="business" class="category__label"> Business </label>
-            <input type="radio" name="category" class="category__input" value="entertainment" id="entertainment" />
+            <input
+              type="radio"
+              name="category"
+              class="category__input"
+              value="entertainment"
+              id="entertainment"
+            />
             <label for="entertainment" class="category__label"> Entertainment </label>
           </div>
         </nav>
@@ -47,7 +92,14 @@
       <main class="main container main-news">
         <div class="news-filters">
           <div class="news-filter__item news-filters__search">
-            <input type="search" id="searchQuery" name="q" class="search__input" placeholder="Search..." aria-label="News search" />
+            <input
+              type="search"
+              id="searchQuery"
+              name="q"
+              class="search__input"
+              placeholder="Search..."
+              aria-label="News search"
+            />
             <div class="search__icon">
               <svg viewBox="0 0 1024 1024">
                 <path
@@ -57,7 +109,10 @@
               </svg>
             </div>
           </div>
-          <div class="news-filter__item news-filters__sort-by news-filters__sort-by_hidden" id="sortByBlock">
+          <div
+            class="news-filter__item news-filters__sort-by news-filters__sort-by_hidden"
+            id="sortByBlock"
+          >
             <!-- <div class="news-filter__item news-filters__sort-by news-filters__sort-by_hidden"> -->
             <label for="sortBy">Sort by:</label>
             <select name="Sorting option for news" id="sortBy">
@@ -102,7 +157,10 @@
           <h1 class="news-info__header">Top Headlines</h1>
         </div>
         <div class="main-news__loader main-news__loader_notVisible" id="loader"></div>
-        <div class="main-news__articles articles animate-bottom" id="mainNewsArticles"></div>
+        <div
+          class="main-news__articles articles animate-bottom"
+          id="mainNewsArticles"
+        ></div>
       </main>
     </div>
     <footer class="footer">

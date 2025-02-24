@@ -1,21 +1,32 @@
-import { NewsApi } from "./api/newsApi.js";
-import { ArticlesView } from "./views/articlesView.js";
-import { FilterState } from "./state/filterState.js";
-import { SelectCountryView } from "./views/selectCountryView.js";
-import { SelectCategoryView } from "./views/selectCategoryView.js";
-import { SearchQueryView } from "./views/searchQueeryView.js";
-import { Loader } from "./lib/loader.js";
+import { NewsApi } from './api/newsApi.js';
+import { ArticlesView } from './views/articlesView.js';
+import { FilterState } from './state/filterState.js';
+import { SelectCountryView } from './views/selectCountryView.js';
+import { SelectCategoryView } from './views/selectCategoryView.js';
+import { SearchQueryView } from './views/searchQueeryView.js';
+import { Loader } from './lib/loader.js';
 
-const menuButton = document.querySelector("#mobileMenuButton");
-const headerNav = document.querySelector("#headerNav");
+const menuButton = document.querySelector('#mobileMenuButton');
+const headerNav = document.querySelector('#headerNav');
+const newsCategory = document.querySelector('#chooseCategory');
 
-menuButton?.addEventListener("click", function () {
-  menuButton?.classList.toggle("mobile-menu-button_active");
-  headerNav?.classList.toggle("navbar_mobile");
+function toggleMobileMenu() {
+  menuButton?.classList.toggle('mobile-menu-button_active');
+  headerNav?.classList.toggle('navbar_mobile');
+}
+
+newsCategory.addEventListener('click', function (event) {
+  if (event.target.matches('input.category__input')) {
+    toggleMobileMenu();
+  }
+});
+
+menuButton?.addEventListener('click', function () {
+  toggleMobileMenu();
 });
 
 /** @type {?HTMLDivElement} */
-const mainNewsArticles = document.querySelector("#mainNewsArticles");
+const mainNewsArticles = document.querySelector('#mainNewsArticles');
 
 const newsApi = new NewsApi();
 
@@ -37,13 +48,21 @@ filters.subscribe(async (state) => {
   });
   loader.hide();
   const { articles } = response;
-  articlesComponent.render(articles.filter((article) => article.title !== "[Removed]" && article.url !== null));
+  articlesComponent.render(
+    articles.filter((article) => article.title !== '[Removed]' && article.url !== null)
+  );
 });
 
-filters.initialize({ country: "us", category: "general" });
+filters.initialize({ country: 'us', category: 'general' });
 
-new SelectCountryView({ value: filters.getState().country, onChange: filters.setCountry }).render();
-new SelectCategoryView({ value: filters.getState().category, onChange: filters.setCategory }).render();
+new SelectCountryView({
+  value: filters.getState().country,
+  onChange: filters.setCountry,
+}).render();
+new SelectCategoryView({
+  value: filters.getState().category,
+  onChange: filters.setCategory,
+}).render();
 new SearchQueryView({
   query: filters.getState().q,
   onChangeQuery: filters.setQuery,

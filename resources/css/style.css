@@ -20,7 +20,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   min-height: 100vh;
   display: flex;
@@ -111,7 +111,7 @@ a {
   padding: 0 12px;
   cursor: pointer;
 }
-.category input[type="radio"]:checked + label {
+.category input[type='radio']:checked + label {
   background-color: rgba(var(--light-grey-color), 0.2);
 }
 
@@ -166,6 +166,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 2;
   }
 
   .navbar_mobile .category {
@@ -187,7 +188,7 @@ a {
 
   .mobile-menu-button {
     display: block;
-    z-index: 99;
+    z-index: 5;
   }
 
   .mobile-menu-button_active .mobile-menu-button__bar:nth-child(2) {
@@ -293,7 +294,7 @@ svg {
 }
 
 /* TRYING TO REMOVE CLEAR BUTTON OR STYLE IT IN SEARCH INPUT */
-input[type="search"]::-webkit-search-cancel-button {
+input[type='search']::-webkit-search-cancel-button {
   color: red;
   background-color: blue;
   height: 100px;
@@ -442,7 +443,7 @@ input[type="search"]::-webkit-search-cancel-button {
   object-fit: cover;
   margin-bottom: 8px;
   align-self: center;
-  background-image: url("/resources/images/no-image-dark.png");
+  background-image: url('/resources/images/no-image-dark.png');
   background-size: cover;
   background-position: center;
 }
