@@ -1,6 +1,7 @@
-import { createDomElement } from "../lib/createDomElement.js";
+import { createDomElement } from '../lib/createDomElement.js';
+import { cleanText } from '../lib/cleanText.js';
 
-const DEFAULT_IMAGE = "resources/images/no-image-dark.png";
+const DEFAULT_IMAGE = 'resources/images/no-image-dark.png';
 
 export class ArticlesView {
   #renderArea;
@@ -22,34 +23,34 @@ export class ArticlesView {
    * @returns {HTMLDivElement}
    */
   #createArticleCard(newsArticle) {
-    const newsCard = createDomElement("div", {
-      classNames: ["articles__news-card", "news-card"],
+    const newsCard = createDomElement('div', {
+      classNames: ['articles__news-card', 'news-card'],
     });
-    const articleHeader = createDomElement("h2", {
-      classNames: ["news-card__header"],
+    const articleHeader = createDomElement('h2', {
+      classNames: ['news-card__header'],
       innerText: newsArticle.title,
     });
 
-    const articleImage = createDomElement("img", {
-      classNames: ["news-card__image"],
+    const articleImage = createDomElement('img', {
+      classNames: ['news-card__image'],
       attributes: {
         onerror: `this.src='${DEFAULT_IMAGE}'`,
-        alt: "News article picture",
+        alt: 'News article picture',
         src: newsArticle.urlToImage || DEFAULT_IMAGE,
       },
     });
 
-    const articleDescription = createDomElement("p", {
-      classNames: ["news-card__description"],
-      innerText: newsArticle.description,
+    const articleDescription = createDomElement('p', {
+      classNames: ['news-card__description'],
+      innerText: cleanText(newsArticle.description),
     });
-    const articleButton = createDomElement("a", {
-      classNames: ["news-card__link"],
+    const articleButton = createDomElement('a', {
+      classNames: ['news-card__link'],
       attributes: {
         href: newsArticle.url,
-        target: "_blank",
+        target: '_blank',
       },
-      innerText: "Read More",
+      innerText: 'Read More',
     });
 
     newsCard.append(articleHeader, articleImage, articleDescription, articleButton);
@@ -68,6 +69,6 @@ export class ArticlesView {
   }
 
   clearRenderArea() {
-    this.#renderArea.innerHTML = "";
+    this.#renderArea.innerHTML = '';
   }
 }
