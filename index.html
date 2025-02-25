@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
-    rel="stylesheet"
-  />
-
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="resources/css/style.css" />
     <title>News Site</title>
   </head>
 
@@ -18,33 +18,117 @@
     <header class="header">
       <div class="header__content container">
         <a href="/index.html" class="header__logo logo">News Wave</a>
-        <button class="navbar__mobile-menu-button mobile-menu-button" id="mobileMenuButton">
-          <span class="mobile-menu-button__bar mobile-menu-button__top-bar"></span>
-          <span class="mobile-menu-button__bar mobile-menu-button__mid-bar"></span>
-          <span class="mobile-menu-button__bar mobile-menu-button__bottom-bar"></span>
+        <button
+          class="navbar__mobile-menu-button mobile-menu-button"
+          id="mobileMenuButton"
+        >
+          <span class="mobile-menu-button__bar"></span>
+          <span class="mobile-menu-button__bar"></span>
+          <span class="mobile-menu-button__bar"></span>
         </button>
         <nav class="header__navbar navbar" id="headerNav">
-          <ul class="navbar__list" id="navbarList">
-            <li class="navbar__list-item">
-              <a href="#" class="list-item__link">Business</a>
-            </li>
-            <li class="navbar__list-item">
-              <a href="#" class="list-item__link">Sports</a>
-            </li>
-            <li class="navbar__list-item">
-              <a href="#" class="list-item__link">Technology</a>
-            </li>
-            <li class="navbar__list-item">
-              <a href="#" class="list-item__link">Health</a>
-            </li>
-          </ul>
+          <div class="category" id="chooseCategory">
+            <input
+              id="general"
+              type="radio"
+              name="category"
+              class="category__input"
+              value="general"
+            />
+            <label for="general" class="category__label">General</label>
+            <input
+              id="sport"
+              type="radio"
+              name="category"
+              class="category__input"
+              value="sports"
+            />
+            <label for="sport" class="category__label"> Sports </label>
+            <input
+              type="radio"
+              name="category"
+              class="category__input"
+              value="technology"
+              id="technology"
+            />
+            <label for="technology" class="category__label">Technology</label>
+            <input
+              type="radio"
+              name="category"
+              class="category__input"
+              id="science"
+              value="science"
+            />
+            <label for="science" class="category__label"> Science </label>
+            <input
+              type="radio"
+              name="category"
+              class="category__input"
+              value="health"
+              id="health"
+            />
+            <label for="health" class="category__label"> Health </label>
+            <input
+              type="radio"
+              name="category"
+              class="category__input"
+              value="business"
+              id="business"
+            />
+            <label for="business" class="category__label"> Business </label>
+            <input
+              type="radio"
+              name="category"
+              class="category__input"
+              value="entertainment"
+              id="entertainment"
+            />
+            <label for="entertainment" class="category__label"> Entertainment </label>
+          </div>
         </nav>
       </div>
     </header>
     <div class="main-content">
       <main class="main container main-news">
-        <h1 class="main-news__header">Top Headlines</h1>
-        <div class="main-news__articles articles" id="mainNewsArticles"></div>
+        <div class="news-filters">
+          <div class="news-filter__item news-filters__search">
+            <input
+              type="search"
+              id="searchQuery"
+              name="q"
+              class="search__input"
+              placeholder="Search..."
+              aria-label="News search"
+            />
+            <div class="search__icon">
+              <svg viewBox="0 0 1024 1024">
+                <path
+                  class="path1"
+                  d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="news-filter__item news-filters__sort-by news-filters__sort-by_hidden"
+            id="sortByBlock"
+          >
+            <label for="sortBy">Sort by:</label>
+            <select name="Sorting option for news" id="sortBy">
+              <option value="publishedAt">Date</option>
+              <option value="popularity">Popularity</option>
+              <option value="relevancy">Relevancy</option>
+            </select>
+          </div>
+        </div>
+        <div class="main-news__news-info">
+          <h1 class="news-info__header">Top Headlines</h1>
+        </div>
+        <div class="main-news__loader main-news__loader_notVisible" id="loader"></div>
+        <div
+          class="main-news__articles articles animate-bottom"
+          id="mainNewsArticles"
+        ></div>
       </main>
     </div>
     <footer class="footer">
