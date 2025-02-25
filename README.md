@@ -1,7 +1,9 @@
 # Page with news from NewsAPI (HTML/JS/CSS)
 
-- Allows you to open news from US by top headlines in header-menu.
-- Or you can use Search to search news globaly (supports many langages)
+- Allows you to browese news from USA by top headlines in header-menu.
+- Or you can use Search to search news globaly (supports many langages).
+
+NewsAPI has restrictions on free plan. So you need to run this page via localhost to get the news.
 
 ## Here how the news page looks like
 
